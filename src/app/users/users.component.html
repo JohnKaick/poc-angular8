@@ -1,0 +1,14 @@
+<app-user-form (saved)="onSave($event)"></app-user-form>
+
+<mat-card>
+    <mat-card-title>
+        Listagem
+    </mat-card-title>
+    <mat-card-content>
+        <section>
+            <mat-list *ngFor="let u of users">
+                <mat-list-item>{{ u.name }}</mat-list-item>
+            </mat-list>
+        </section>
+    </mat-card-content>
+</mat-card>
