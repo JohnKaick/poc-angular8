@@ -15,6 +15,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { FormsModule } from '@angular/forms';
 
+import { StoreModule } from '@ngrx/store';
+import { userReducer } from './users/users.reducer';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +26,9 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    StoreModule.forRoot({
+      user: userReducer,
+    }),
     BrowserAnimationsModule,
     AppRoutingModule,
     MatFormFieldModule,

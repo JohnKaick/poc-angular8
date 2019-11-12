@@ -1,4 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { IUserState } from '../users.state';
+import { add } from '../users.action';
 
 @Component({
   selector: 'app-user-form',
@@ -10,13 +13,19 @@ export class UserFormComponent implements OnInit {
   name: string;
   @Output() saved = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(private store: Store<IUserState>) { }
 
   ngOnInit() {
   }
 
   save() {
+    this.store.dispatch(add({ payload: { name: this.name } }))
+  }
+
+  /*
+  save() {
     this.saved.emit(this.name);
   }
+  */
 
 }
